@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minsk Mafia</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Замените ссылку ниже на свою собственную позже -->
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/ios-filled/50/ffffff/cat--v1.png">
+</head>
+<body>
+    <header>
+        <div class="logo">Minsk Mafia</div>
+        <div class="slogan">A sip of tea, a dose of crime.</div>
+    </header>
+
+    <main>
+        <!-- Кнопки навигации -->
+        <button id="prevBtn" class="nav-btn">← Previous</button>
+        <button id="nextBtn" class="nav-btn">Next →</button>
+
+        <!-- Выпадающий список архива -->
+        <div class="archive-container">
+            <select id="archiveDropdown" class="archive-dropdown">
+                <option value="">Select a story...</option>
+                <!-- Список будет заполнен скриптом -->
+            </select>
+        </div>
+
+        <!-- Контейнер для контента -->
+        <div id="storyViewer" class="story-viewer">
+            <div class="loader">Loading meows...</div>
+        </div>
+
+        <!-- Кнопки поделиться -->
+        <div class="share-buttons">
+            <button onclick="share('Telegram')">Share on Telegram</button>
+            <button onclick="share('WhatsApp')">Share on WhatsApp</button>
+            <button onclick="share('Other')">Share URL</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>© Minsk Mafia. For internal use only.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
