@@ -1,5 +1,5 @@
 // КОНФИГУРАЦИЯ - ЗАМЕНИТЕ ЭТУ ССЫЛКУ НА СВОЮ!
-const GOOGLE_SHEET_URL = '1vQ38ipgxTj31l34K_2bklFDdCe3oIt_pI6tGEZWOixLLF8vpHQv0ZzDnZYBALdwMfTHAxXhVF0So5Ty/pub?output=csv';
+const GOOGLE_SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ38ipgxTj31l34K_2bklFDdCe3oIt_pI6tGEZWOixLLF8vpHQv0ZzDnZYBALdwMfTHAxXhVF0So5Ty/pub?output=csv';
 
 // Глобальные переменные
 let stories = []; // Массив для хранения всех историй
