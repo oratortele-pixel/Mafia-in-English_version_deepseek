@@ -2,8 +2,8 @@
 const GOOGLE_SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ38ipgxTj31l34K_2bklFDdCe3oIt_pI6tGEZWOixLLF8vpHQv0ZzDnZYBALdwMfTHAxXhVF0So5Ty/pub?output=csv';
 
 // Глобальные переменные
-let stories = []; // Массив для хранения всех историй
-let currentStoryIndex = 0; // Индекс текущей отображаемой истории
+let stories = []; // Массив для хранения всех персонажей
+let currentStoryIndex = 0; // Индекс текущего отображаемого персонажа
 
 // Функция для загрузки данных из Google Sheets
 async function loadStories() {
@@ -24,22 +24,22 @@ async function loadStories() {
 
         // Заполняем выпадающий список
         populateArchiveDropdown();
-        // Показываем первую историю
+        // Показываем первого персонажа
         showStory(0);
         // Обновляем состояние кнопок навигации
         updateNavigation();
 
     } catch (error) {
-        console.error('Error loading stories:', error);
-        document.getElementById('storyViewer').innerHTML = '<p class="loader">Failed to load the stories. Meow?</p>';
+        console.error('Error loading characters:', error);
+        document.getElementById('storyViewer').innerHTML = '<p class="loader">Failed to load the legends. Try again later.</p>';
     }
 }
 
 // Функция для заполнения выпадающего списка
 function populateArchiveDropdown() {
     const dropdown = document.getElementById('archiveDropdown');
-    // Очищаем все опции, кроме первой ("Select a story...")
-    dropdown.innerHTML = '<option value="">Select a story...</option>';
+    // Очищаем все опции, кроме первой ("Select a character...")
+    dropdown.innerHTML = '<option value="">Select a character...</option>';
 
     stories.forEach((story, index) => {
         const option = document.createElement('option');
@@ -57,7 +57,7 @@ function populateArchiveDropdown() {
     };
 }
 
-// Функция для отображения истории по индексу
+// Функция для отображения персонажа по индексу
 function showStory(index) {
     const viewer = document.getElementById('storyViewer');
     if (index >= 0 && index < stories.length) {
@@ -70,7 +70,7 @@ function showStory(index) {
             <div class="story-text">${story.story}</div>
         `;
     } else {
-        viewer.innerHTML = '<p class="loader">Story not found.</p>';
+        viewer.innerHTML = '<p class="loader">Character not found.</p>';
     }
     // После отрисовки обновляем кнопки и выбор в dropdown
     updateNavigation();
@@ -102,30 +102,17 @@ document.getElementById('nextBtn').addEventListener('click', () => {
     }
 });
 
-// Функция для кнопок "Поделиться"
+// Функция для кнопки "Поделиться" (только Telegram)
 function share(platform) {
     const currentStory = stories[currentStoryIndex];
-    const currentUrl = encodeURIComponent(window.location.href + '?story=' + currentStoryIndex); // Простая реализация ссылки
-    const text = encodeURIComponent(`Check out this story: "${currentStory.title}" from Minsk Mafia!`);
+    const currentUrl = encodeURIComponent(window.location.href + '?story=' + currentStoryIndex);
+    const text = encodeURIComponent(`Check out this legend: "${currentStory.title}" from Mafia Hall of Fame!`);
 
-    let shareUrl;
-    switch (platform) {
-        case 'Telegram':
-            shareUrl = `https://t.me/share/url?url=${currentUrl}&text=${text}`;
-            break;
-        case 'WhatsApp':
-            shareUrl = `https://wa.me/?text=${text}%20${currentUrl}`;
-            break;
-        case 'Other':
-            navigator.clipboard.writeText(window.location.href + '?story=' + currentStoryIndex).then(() => {
-                alert('Link copied to clipboard!');
-            });
-            return; // Прерываем, т.к. не нужно открывать новое окно
-        default:
-            return;
+    if (platform === 'Telegram') {
+        const shareUrl = `https://t.me/share/url?url=${currentUrl}&text=${text}`;
+        window.open(shareUrl, '_blank');
     }
-    window.open(shareUrl, '_blank');
 }
 
-// Загружаем истории сразу после загрузки скрипта
+// Загружаем данные сразу после загрузки скрипта
 loadStories();
