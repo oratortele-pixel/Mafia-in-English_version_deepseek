@@ -6,13 +6,13 @@
 }
 
 body {
-    font-family: 'Times New Roman', Times, serif; /* Классический шрифт */
-    background-color: #121212; /* Темный фон */
-    color: #f0f0f0; /* Светлый текст */
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #121212;
+    color: #f0f0f0;
     line-height: 1.6;
     padding: 20px;
-    max-width: 600px; /* Узкая колонка для удобства чтения */
-    margin: 0 auto; /* Центрирование */
+    max-width: 600px;
+    margin: 0 auto;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -27,22 +27,24 @@ header {
 }
 
 .logo {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     font-weight: bold;
-    color: #ff4444; /* Красный акцент */
+    color: #daa520;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    margin-bottom: 0.5rem;
 }
 
 .slogan {
     font-style: italic;
     color: #ccc;
-    margin-top: 0.5rem;
+    font-size: 1.1rem;
 }
 
 /* Основной контент */
 main {
-    flex-grow: 1; /* Растягивается на всю доступную высоту */
+    flex-grow: 1;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -91,7 +93,7 @@ main {
 .story-viewer {
     width: 100%;
     min-height: 300px;
-    border: 1px solid #333;
+    border: 2px solid #daa520;
     border-radius: 5px;
     padding: 20px;
     background-color: #1e1e1e;
@@ -100,7 +102,7 @@ main {
 }
 
 .story-title {
-    color: #ff4444;
+    color: #daa520;
     margin-bottom: 1rem;
     font-size: 1.5rem;
 }
@@ -113,7 +115,7 @@ main {
 }
 
 .story-text {
-    white-space: pre-line; /* Сохраняет переносы строк из Google Sheets */
+    white-space: pre-line;
     text-align: left;
 }
 
@@ -125,24 +127,23 @@ main {
     font-style: italic;
 }
 
-/* Кнопки поделиться */
+/* Кнопка поделиться */
 .share-buttons {
     display: flex;
-    gap: 10px;
     justify-content: center;
-    flex-wrap: wrap;
-    margin-top: auto; /* Прижимает к низу */
+    margin-top: auto;
     padding-top: 20px;
 }
 
 .share-buttons button {
-    padding: 8px 12px;
+    padding: 10px 20px;
     background-color: #333;
     color: white;
     border: none;
-    border-radius: 3px;
+    border-radius: 5px;
     cursor: pointer;
     font-family: inherit;
+    font-size: 1rem;
 }
 .share-buttons button:hover {
     background-color: #555;
@@ -163,36 +164,10 @@ footer {
     body {
         padding: 10px;
     }
-    .share-buttons {
-        flex-direction: column;
-        align-items: center;
+    .logo {
+        font-size: 2.2rem;
     }
     .share-buttons button {
         width: 80%;
     }
-}
-
-
-/* ... (остальные стили остаются) ... */
-
-.logo {
-    font-size: 2.8rem; /* Чуть больше */
-    font-weight: bold;
-    color: #daa520; /* Золотой цвет вместо красного для престижа */
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-    margin-bottom: 0.5rem;
-}
-
-.slogan {
-    font-style: italic;
-    color: #ccc;
-    font-size: 1.1rem;
-}
-
-/* По желанию, можно добавить разделитель как на trophy */
-.story-viewer {
-    /* ... (остальные стили) ... */
-    border: 2px solid #daa520; /* Золотая рамка */
 }
