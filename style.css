@@ -171,3 +171,28 @@ footer {
         width: 80%;
     }
 }
+
+
+/* ... (остальные стили остаются) ... */
+
+.logo {
+    font-size: 2.8rem; /* Чуть больше */
+    font-weight: bold;
+    color: #daa520; /* Золотой цвет вместо красного для престижа */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    margin-bottom: 0.5rem;
+}
+
+.slogan {
+    font-style: italic;
+    color: #ccc;
+    font-size: 1.1rem;
+}
+
+/* По желанию, можно добавить разделитель как на trophy */
+.story-viewer {
+    /* ... (остальные стили) ... */
+    border: 2px solid #daa520; /* Золотая рамка */
+}
